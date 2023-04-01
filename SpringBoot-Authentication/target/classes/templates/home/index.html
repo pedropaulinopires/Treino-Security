@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+<body>
+<h1>Ola</h1>
+<a  th:if="${role.contains('ROLE_ADMIN')}" th:href="@{/special}">Aqui!</a>
+<p>Ola <span th:text="${user}">Usuário</span></p>
+
+<p>Seja bem vindo <span th:text="${username}"></span></p>
+
+
+
+<table style="margin:auto" border="1" class="table table-striped table-responsive-md">
+    <thead>
+    <tr>
+        <th>Nome</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pepoles : ${listPeoples.content}">
+        <td th:text="${pepoles.username}"></td>
+    </tr>
+    </tbody>
+</table>
+<nav aria-label="...">
+    <ul class="pagination">
+        <li th:if="${listPeoples.totalPages > 0}" th:each="numberPage : ${numberPages}"
+            th:class="${numberPage==listPeoples.number + 1} ? 'page-item active' : 'page-item'">
+            <a class="page-link" th:href="@{/(size=${listPeoples.size}, page=${numberPage})}"
+               th:text=${numberPage}></a>
+        </li>
+    </ul>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+</body>
+</html>

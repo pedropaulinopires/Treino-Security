@@ -1,0 +1,7 @@
+com\pedro\spring\domain\User$UserBuilder.class
+com\pedro\spring\security\configurer\ConfigureSecuritySpring.class
+com\pedro\spring\controller\SpringController.class
+com\pedro\spring\SpringBootAuthenticationApplication.class
+com\pedro\spring\security\configurer\LoginInterceptor.class
+com\pedro\spring\service\CookieService.class
+com\pedro\spring\domain\User.class
